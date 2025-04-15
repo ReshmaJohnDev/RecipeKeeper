@@ -7,6 +7,7 @@ let displayArea = document.getElementById("display-area");
 let recipes = [];
 recipeForm.addEventListener("submit", function (event) {
   event.preventDefault();
+  console.log("Test");
   let enteredRecipeName = recipeName.value;
   let enteredIngredients = ingredients.value;
   let enteredSteps = steps.value;
@@ -20,6 +21,8 @@ recipeForm.addEventListener("submit", function (event) {
   recipeName.value = "";
   ingredients.value = "";
   steps.value = "";
+
+  console.log(newRecipe);
 
   // add the new recipe to the recipes array
 
