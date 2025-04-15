@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="header-container">
+      <h1>Recipe Keeper</h1>
+    </div>
+    <div class="recipe-form-container">
+      <h2>Add Recipe</h2>
+      <form id="recipe-form">
+        <label id=" recipe-name" for="recipieName">Recipe Name:</label><br />
+        <input
+          id="ingredients"
+          type="text"
+          id="recipieName"
+          name="recipieName"
+        /><br /><br />
+        <label class="textLabel" id="ingrediants" for="message"
+          >Ingredients</label
+        ><br />
+        <textarea
+          id="steps'"
+          name="message"
+          placeholder="List ingredients separated by commas"
+        ></textarea>
+        <br /><br />
+        <label id="steps" for="message">Steps for Preparation</label><br />
+        <textarea name="message" placeholder="Steps for preparation"></textarea>
+        <br /><br /><button id="addRecipe" type="button">Add Recipe</button>
+      </form>
+    </div>
+
+    <h2>Your Recipes</h2>
+    <div id="display-area"></div>
+  </body>
+</html>
