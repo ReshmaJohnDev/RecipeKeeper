@@ -13,30 +13,27 @@
     <div class="recipe-form-container">
       <h2>Add Recipe</h2>
       <form id="recipe-form">
-        <label id=" recipe-name" for="recipieName">Recipe Name:</label><br />
-        <input
-          id="ingredients"
-          type="text"
-          id="recipieName"
-          name="recipieName"
-        /><br /><br />
-        <label class="textLabel" id="ingrediants" for="message"
-          >Ingredients</label
-        ><br />
+        <label for="recipieName">Recipe Name:</label><br />
+        <input id="recipe-name" type="text" name="recipieName" /><br /><br />
+        <label for="message">Ingredients</label><br />
         <textarea
-          id="steps'"
+          id="ingredients"
           name="message"
           placeholder="List ingredients separated by commas"
         ></textarea>
         <br /><br />
-        <label id="steps" for="message">Steps for Preparation</label><br />
-        <textarea name="message" placeholder="Steps for preparation"></textarea>
-        <br /><br /><button id="addRecipe" type="button">Add Recipe</button>
+        <label for="message">Steps for Preparation</label><br />
+        <textarea
+          id="steps"
+          name="message"
+          placeholder="Steps for preparation"
+        ></textarea>
+        <br /><br /><button id="addRecipe" type="submit">Add Recipe</button>
       </form>
     </div>
 
     <h2>Your Recipes</h2>
     <div id="display-area"></div>
-    <style src="recipeKeeper.js"></style>
+    <script src="recipeKeeper.js"></script>
   </body>
 </html>
