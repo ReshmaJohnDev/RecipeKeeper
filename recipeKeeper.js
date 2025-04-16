@@ -7,7 +7,6 @@ let displayArea = document.getElementById("display-area");
 let recipes = [];
 recipeForm.addEventListener("submit", function (event) {
   event.preventDefault();
-  console.log("Test");
   let enteredRecipeName = recipeName.value;
   let enteredIngredients = ingredients.value;
   let enteredSteps = steps.value;
@@ -22,9 +21,14 @@ recipeForm.addEventListener("submit", function (event) {
   ingredients.value = "";
   steps.value = "";
 
-  console.log(newRecipe);
-
-  // add the new recipe to the recipes array
-
-  // We'll be adding more functionality here in the next steps.
+  displayRecipe(newRecipe);
 });
+
+function displayRecipe(recipe) {
+  // create a div for the new recipe
+  let recipeDiv = document.createElement("div");
+  console.log(recipe);
+  recipeDiv.innerHTML += `<h1>${recipe.name}</h1> Ingredients:  ${recipe.ingredients}<p></p> Steps<p>${recipe.steps}</p>`;
+  displayArea.appendChild(recipeDiv);
+  displayArea.style.display = "block";
+}
