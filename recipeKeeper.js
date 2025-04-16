@@ -4,8 +4,8 @@ let ingredients = document.getElementById("ingredients");
 let steps = document.getElementById("steps");
 let recipe_url = document.getElementById("recipe-image-url");
 let displayArea = document.getElementById("display-area");
-
 let recipes = [];
+
 recipeForm.addEventListener("submit", function (event) {
   event.preventDefault();
   let enteredRecipeName = recipeName.value;
@@ -20,31 +20,44 @@ recipeForm.addEventListener("submit", function (event) {
     steps: enteredSteps,
     url: image_url,
   };
+  recipes.push(newRecipe);
+
   recipeName.value = "";
   ingredients.value = "";
   steps.value = "";
   recipe_url.value = "";
-
-  displayRecipe(newRecipe);
+  displayRecipe(recipes);
 });
 
-function displayRecipe(recipe) {
-  // create a div for the new recipe
-  let recipeDiv = document.createElement("div");
-  // create a delete button
-  let deleteButton = document.createElement("button");
-  if (recipe.url) {
-    let imgElement = document.createElement("img");
-    imgElement.src = recipe.url;
-    imgElement.style.maxWidth = "200px";
-    recipeDiv.appendChild(imgElement);
-  }
-  recipeDiv.innerHTML += `<h1>${recipe.name}</h1> Ingredients:  ${recipe.ingredients}<p></p> Steps<p>${recipe.steps}</p>`;
-  recipeDiv.appendChild(deleteButton);
-  displayArea.appendChild(recipeDiv);
-  displayArea.style.display = "block";
-  deleteButton.onclick = function () {
-    recipeDiv.remove();
-    displayArea.style.display = "none";
-  };
+function displayRecipe(recipes) {
+  console.log(recipes);
+  displayArea.innerHTML = "";
+  recipes.forEach((recipe, index) => {
+    let recipeDiv = document.createElement("div");
+
+    if (recipe.url) {
+      let imgElement = document.createElement("img");
+      imgElement.src = recipe.url;
+      imgElement.style.maxWidth = "200px";
+      recipeDiv.appendChild(imgElement);
+    }
+    recipeDiv.innerHTML += `<h1>${recipe.name}</h1> Ingredients:  ${recipe.ingredients}<p></p> Steps<p>${recipe.steps}</p>`;
+    let deleteButton = document.createElement("button");
+    deleteButton.innerText = "Delete Recipe";
+
+    deleteButton.onclick = function () {
+      deleteRecipe(index, recipes);
+    };
+
+    displayArea.appendChild(recipeDiv);
+    recipeDiv.appendChild(deleteButton);
+    displayArea.style.display = "block";
+  });
+}
+
+function deleteRecipe(index, recipes) {
+  console.log(index);
+  recipes.splice(index, 1);
+
+  displayRecipe(recipes);
 }
